@@ -25,7 +25,6 @@ public class UserDto {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date nowdate;
-
     private Date lastPaymentDate;
 
 

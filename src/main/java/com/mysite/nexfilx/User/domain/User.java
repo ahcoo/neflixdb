@@ -1,14 +1,10 @@
 package com.mysite.nexfilx.User.domain;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mysite.nexfilx.User.dto.ProfileNameDto;
 import lombok.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -35,17 +31,14 @@ public class User {
 
     private String roles;
 
+
     @Column
     private Date lastPaymentDate;
-
-//    @OneToMany(mappedBy = "user")
+    //    @OneToMany(mappedBy = "user")
 //    private List<ProfileName> profileNameList;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ProfileName> profileNameList;
-
-
     public User(User user) {
         id = user.getId();
         password = user.getPassword();
